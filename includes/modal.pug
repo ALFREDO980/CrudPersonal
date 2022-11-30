@@ -1,0 +1,41 @@
+
+#modalContacto.modal.fade(tabindex="-1" aria-labelledby="modalContacto" aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header.bg-dark.bg-gradient.text-white
+        h5(class="modal-title" id="exampleModalLabel") Editar Producto
+        button(type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close")
+      .modal-body.bg-success.bg-gradient.text-light
+        form(action="/update" method="POST")
+          input(name="edit_id" id="edit_id" type="text" hidden)
+          .mb-3
+            label.form-label(for="hardware") Hardware
+            input.form-control#edit_hardware(type="text" aria-describedby="hardwareHelp" name="hardware" placeholder="hardware completo")
+            .form-text.text-light#hardwareHelp Por favor ingresa un hardware completo.
+            .mb-3
+            label.form-label(for="nombre") Nombre
+            input.form-control#edit_nombre(type="text" aria-describedby="nombreHelp" name="nombre" placeholder="Nombre completo")
+            .form-text.text-light#emailHelp Por favor ingresa un nombre valido.
+            .mb-3
+            label.form-label(for="modelo") Modelo
+            input.form-control#edit_modelo(type="text" aria-describedby="modeloHelp" name="modelo" placeholder="modelo a 10 digitos")
+            .form-text.text-light#modeloHelp Por favor ingresa un modelo valido.
+            .mb-3
+            label.form-label(for="marca") Marca
+            input.form-control#edit_marca(type="text" aria-describedby="marcaHelp" name="marca" placeholder="marca a 10 digitos")
+            .form-text.text-light#linkHelp Por favor ingresa un marca valido.
+            .mb-3
+            label.form-label(for="descripcion") Descripcion
+            input.form-control#edit_descripcion(type="text" aria-describedby="linkHelp" name="descripcion" placeholder="link a 10 digitos")
+            .form-text.text-light#linkHelp Por favor ingresa un descripciom valido.
+            .mb-3
+            label.form-label(for="lanzamiento") Año de lanzamiento
+            input.form-control#edit_lanzamiento(type="date" aria-describedby="linkHelp" name="lanzamiento" placeholder="link a 10 digitos")
+            .form-text.text-light#linkHelp Por favor ingresa un link valido.
+            .mb-3
+            label.form-label(for="link") Link
+            input.form-control#edit_link(type="text" aria-describedby="linkHelp" name="link" placeholder="link a 10 digitos")
+            .form-text.text-light#linkHelp Por favor ingresa un link valido.
+            
+          .d-grid
+            button(type="submit" class="btn btn-warning") Actualizar

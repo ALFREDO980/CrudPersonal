@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crud</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    body.bg-image.text-white(style="\
+        background-image: url('https://guiasdevideojuegos.com/wp-content/uploads/2020/02/1.jpg');\
+        no-repeate;\
+        ")
+        .container
+            .row 
+                .col.animate_animated.animatebackInDown.animate_duration-1s 
+                    h1.d-flex.justify-content-center Inventario 
+        .container
+            .row.d-flex.justify-content-center
+                .col 
+                    form.shadow-lg.p-3.mb-5.bg-info.bg.bg-gradient.rounded(action="/create" method="POST")
+                        fieldset
+                            legend Datos del producto
+                                .container
+                                    .row
+                                        .col-6
+                                            .mb-3
+                                            label.form-label(for="hardware") Hardware
+                                            input.form-control#hardware(type="text" aria-describedby="hardwareHelp" name="hardware" placeholder="hardware completo")
+                                            .form-text.text-light#hardwareHelp Por favor ingresa un hardware completo.
+                                            .mb-3
+                                            label.form-label(for="nombre") Nombre
+                                            input.form-control#nombre(type="nombre" aria-describedby="nombreHelp" name="nombre" placeholder="Nombre completo")
+                                            .form-text.text-light#emailHelp Por favor ingresa un nombre valido.
+                                            .mb-3
+                                            label.form-label(for="modelo") Modelo
+                                            input.form-control#modelo(type="text" aria-describedby="modeloHelp" name="modelo" placeholder="modelo a 10 digitos")
+                                            .form-text.text-light#modeloHelp Por favor ingresa un modelo valido.
+                                            .mb-3
+                                            label.form-label(for="marca") Marca
+                                            input.form-control#marca(type="text" aria-describedby="marcaHelp" name="marca" placeholder="Marca a 10 digitos")
+                                            .form-text.text-light#linkHelp Por favor ingresa un marca valido.
+                                        .col-6
+                                            .mb-3
+                                            label.form-label(for="descripcion") Descripcion
+                                            textarea.form-control#descripcion(type="text" aria-describedby="descripcionHelp" name="descripcion" placeholder="Ingrese descripcion")
+                                            .form-text.text-light#linkHelp Por favor ingresa un descripcion valido.
+                                            .mb-3
+                                            label.form-label(for="lanzamiento") Año de lanzamiento
+                                            input.form-control#link(type="date" aria-describedby="lanzamientokHelp" name="lanzamiento" placeholder="Año de lanzamiento")
+                                            .form-text.text-light#linkHelp Por favor ingresa un link valido.
+                                            .mb-3
+                                            label.form-label(for="link") Link de imagen
+                                            input.form-control#link(type="text" aria-describedby="linkHelp" name="link" placeholder="link a 10 digitos")
+                                            .form-text.text-light#linkHelp Por favor ingresa un link valido.
+                                            
+                                        .d-flex.justify-content-end
+                                            button.btn.btn-primary(type="submit") Guardar Hardware
+        .container.d-flex.justify-content-center 
+            .row
+                .col
+                    table.table.table-dark.table-striped.table-hover.table-bordered.table-sm.table-responsive-sm(style="width:900px")
+                        thead
+                            tr
+                                th(scope="col") Hardware
+                                th(scope="col") Nombre
+                                th(scope="col") Modelo
+                                th(scope="col") Marca
+                                th(scope="col") Descripcion
+                                th(scope="col") Año lanzamiento 
+                                th(scope="col") Link
+                                th(scope="col") Actualizar
+                                th(scope="col") Eliminar
+                        tbody
+                        if ok
+                            each contacto in contactos
+                                tr
+                                    td.d-none=contacto._id
+                                    td=contacto.hardware
+                                    td=contacto.nombre
+                                    td=contacto.modelo
+                                    td=contacto.marca
+                                    td=contacto.descripcion
+                                    td=contacto.lanzamiento
+                                    td
+                                        img.img-fluid(src=contacto.link)
+                                    td 
+                                        button.btn.btn-warning#btnEditar Actualizar
+                                    td
+                                        a.button.btn.btn-danger(href= `/delete/${contacto._id}`) Eliminar
+                                    
+                        else 
+                                tr
+                                    td Ingrese un dato primero 
+                                    td Ingrese un dato primero
+                                    td Ingrese un dato primero
+                                    td Ingrese un dato primero
+                                    td Ingrese un dato primero
+                                    td Ingrese un dato primero
+                                    td Ingrese un dato primero
+                                    td 
+    include ../includes/modal.pug                      
+                            
+        // tabla
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    script(src="/static/js/modal.js")
+    </body>
+</html>
+    
+    
